@@ -20,9 +20,9 @@ async function getRegions () {
 
   let regions = results
     .map(({ Value }) => Value)
-    .filter(r => !r.startsWith('cn-') && !r.startsWith('us-gov-'))
-    // TODO Remove next line when IL/ME AWS regions are back up
-    .filter(r => !r.startsWith('il-') && !r.startsWith('me-'))
+    // TODO Switch to an allow list for now
+    // .filter(r => r.startsWith('cn-') && !r.startsWith('us-gov-'))
+    .filter(r => r.startsWith('eu-') && r.startsWith('us-east') && r.startsWith('us-west'))
     .sort()
     .reverse()
   if (!regions.length) throw Error('No regions found! Weird.')
