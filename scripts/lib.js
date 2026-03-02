@@ -21,8 +21,8 @@ async function getRegions () {
   let regions = results
     .map(({ Value }) => Value)
     .filter(r => !r.startsWith('cn-') && !r.startsWith('us-gov-'))
-    // TODO Remove next line when ME AWS regions are back up
-    .filter(r => !r.startsWith('me-'))
+    // TODO Remove next line when IL/ME AWS regions are back up
+    .filter(r => !r.startsWith('il-') && !r.startsWith('me-'))
     .sort()
     .reverse()
   if (!regions.length) throw Error('No regions found! Weird.')
