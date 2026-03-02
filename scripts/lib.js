@@ -22,7 +22,7 @@ async function getRegions () {
     .map(({ Value }) => Value)
     // TODO Switch to an allow list for now
     // .filter(r => r.startsWith('cn-') && !r.startsWith('us-gov-'))
-    .filter(r => r.startsWith('eu-') && r.startsWith('us-east') && r.startsWith('us-west'))
+    .filter(r => r.startsWith('eu-') || r.startsWith('us-east') || r.startsWith('us-west'))
     .sort()
     .reverse()
   if (!regions.length) throw Error('No regions found! Weird.')
